@@ -1,8 +1,8 @@
-# Open.MT - Open Market API
+# Daily Rise - Daily Rise API
 
-Welcome to the Open.MT API! Our API powers the marketplace that enables customers to discover and transact with their communities.
+Welcome to the Daily Rise API! Our API powers the marketplace that enables customers to discover and transact with their communities.
 
-## About Open.MT
+## About Daily Rise
 
 [Open.MT](https://open.mt) is a marketplace that enable seamless interactions between customers and their communities. We are dedicated to providing a platform that empowers merchants of all backgrounds, from big brands to small businesses and artisans. Our vision is to revolutionize the world of online commerce by leveraging the potential of decentralization and open technologies.
 
@@ -73,8 +73,4 @@ The tests are run on **Github Actions** on each push.
 ### Linting
 
 The **`eslint` framework** is used to lint the code. The rules are defined in the `.eslintrc` file.
-
---- 
-
-[***Open.MT - Wiki***](https://github.com/jterrazz/app.open-mt)
 

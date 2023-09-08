@@ -1,39 +1,39 @@
 version: "3.9"
 
 services:
-  open-mt-api:
-    container_name: open-mt-status
-    hostname: open-mt-status
-    image: open-mt-api
+  daily-rise-api:
+    container_name: daily-rise-api
+    hostname: daily-rise-api
+    image: daily-rise-api
     build:
       context: ../..
     depends_on:
-      - open-mt-database
-      - open-mt-migration
+      - daily-rise-database
+      - daily-rise-database-migration
     environment:
       - DATABASE_URL
 
-  open-mt-database:
-    container_name: open-mt-database
-    hostname: open-mt-database
+  daily-rise-database:
+    container_name: daily-rise-database
+    hostname: daily-rise-database
     image: postgres:15.2-alpine
     restart: always
     ports:
       - '5432:5432'
     environment:
-      - POSTGRES_DB=open_mt
+      - POSTGRES_DB=daily_rise
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     volumes:
       - ./postgres:/docker-entrypoint-initdb.d
 
-  open-mt-migration:
-    container_name: open-mt-migration
-    image: open-mt-api
+  daily-rise-database-migration:
+    container_name: daily-rise-database-migration
+    image: daily-rise-api
     build:
       context: ../..
     depends_on:
-      - open-mt-database
+      - daily-rise-database
     environment:
       - DATABASE_URL
     command: [ "sh", "./scripts/database.sh", "deploy" ]

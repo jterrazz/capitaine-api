@@ -4,7 +4,7 @@ WORKDIR /home
 
 RUN apk add --no-cache --upgrade bash
 
-# Step 1: Install Dependencies
+# Step 1: Install Dependencies Only (used for cache)
 COPY ./package.json .
 COPY ./yarn.lock .
 RUN yarn install --frozen-lockfile

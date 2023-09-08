@@ -4,6 +4,6 @@ APPLICATION:
   LOGGER:
     LEVEL: 'error'
   DATABASE:
-    URL: 'postgresql://postgres:postgres@localhost:5432/open_mt?pool_timeout=30&connect_timeout=30'
+    URL: 'postgresql://postgres:postgres@localhost:5432/daily_rise?pool_timeout=30&connect_timeout=30'
 
 #SERVICES:
