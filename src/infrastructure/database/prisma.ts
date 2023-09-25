@@ -3,9 +3,9 @@ import { PrismaClient } from '@prisma/client';
 import { Database } from '@ports/database';
 import { Logger } from '@ports/logger';
 
-import { prismaClientFactory } from '@infrastructure/database/prisma.client';
-import { prismaDatabaseFactory } from '@infrastructure/database/prisma.database';
-import { prismaLoggerFactory } from '@infrastructure/database/prisma.logger';
+import { prismaDatabaseFactory } from '@infrastructure/database/database.prisma';
+import { prismaClientFactory } from '@infrastructure/database/prisma-client';
+import { prismaLoggerFactory } from '@infrastructure/database/prisma-logger';
 
 export class PrismaFactory {
     private static database: Database;

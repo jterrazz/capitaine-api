@@ -3,13 +3,13 @@
     "version": "1.0.0",
     "author": "Jean-Baptiste TERRAZZONI",
     "engines": {
-        "node": "18.x"
+        "node": "20.x"
     },
     "scripts": {
         "start": "node -r tsconfig-paths/register -r @swc-node/register src/start-api.ts",
         "start:dev": "nodemon",
         "build": "tsc --noEmit",
-        "build:watch": "tsc --watch --noEmit",
+        "watch": "tsc --watch --noEmit",
         "test": "jest --silent",
         "test:unit": "jest --silent ./src",
         "test:e2e": "jest --silent ./tests",

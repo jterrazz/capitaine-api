@@ -2,8 +2,9 @@
 
 import { Environment } from '@domain/environment';
 
-import { LoggerLevel } from '@infrastructure/logger/logger.level';
-import { winstonLoggerFactory } from '@infrastructure/logger/winston.logger';
+import { LoggerLevel } from '@ports/logger';
+
+import { winstonLoggerFactory } from '@infrastructure/logger/logger.winston';
 
 const stdoutSpy = jest.spyOn(process.stdout, 'write').mockImplementation();
 

@@ -3,7 +3,7 @@ import { sleep } from '@utils/sleep';
 interface RetryOptions {
     tries?: number;
     delay?: number;
-    onError?: (error: Error) => void;
+    onError?: (error: unknown) => void;
 }
 
 export const retry = async <T>(fn: () => Promise<T>, options: RetryOptions = {}): Promise<T> => {

@@ -1,6 +1,6 @@
 import * as z from 'zod';
 
-import { LoggerLevel } from '@infrastructure/logger/logger.level';
+import { LoggerLevel } from '@ports/logger';
 
 export const applicationConfigurationSchema = z.object({
     DATABASE: z.object({

@@ -1,4 +1,4 @@
 import { Controller } from '@domain/controllers/controller';
-import { HealthMetadata } from '@domain/models/health/health-metadata';
+import { ApiHealth } from '@domain/models/api-health/api-health';
 
-export type GetHealthController = Controller<void, HealthMetadata>;
+export type GetHealthController = Controller<void, ApiHealth>;

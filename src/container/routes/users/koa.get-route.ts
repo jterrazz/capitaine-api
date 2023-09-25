@@ -1,7 +1,7 @@
 import { getUserControllerFactory } from '@application/get-user.use-case';
 
-import { getUserKoaDeserializer } from '@adapters/routes/user/get-user.koa-deserializer';
-import { getUserKoaSerializer } from '@adapters/routes/user/get-user.koa-serializer';
+import { getUserDeserializerKoa } from '@adapters/routes/user/get-user-deserializer.koa';
+import { getUserSerializerKoa } from '@adapters/routes/user/get-user-serializer.koa';
 
 import { koaRouteFactory } from '@infrastructure/server/koa-route';
 
@@ -13,5 +13,5 @@ export const getUserByIdKoaRouteFactory = () => {
 
     const getUserController = getUserControllerFactory(userRepository, logger);
 
-    return koaRouteFactory(logger, getUserController, getUserKoaDeserializer, getUserKoaSerializer);
+    return koaRouteFactory(logger, getUserController, getUserDeserializerKoa, getUserSerializerKoa);
 };

@@ -1,9 +1,9 @@
 import { getHealthControllerFactory } from '@application/get-health.use-case';
 
-import { defaultKoaDeserializer } from '@adapters/routes/default.koa-deserializer';
-import { healthKoaSerializer } from '@adapters/routes/health/health.koa-serializer';
+import { defaultDeserializerKoa } from '@adapters/routes/default-deserializer.koa';
+import { healthSerializerKoa } from '@adapters/routes/health/health-serializer.koa';
 
-import { getHealthMetadataFactory } from '@infrastructure/health/get-health-metadata';
+import { getHealthMetadataFactory } from '@infrastructure/api-health/get-api-health';
 import { koaRouteFactory } from '@infrastructure/server/koa-route';
 
 import { container } from '../../injector';
@@ -17,7 +17,7 @@ export const getHealthKoaRouteFactory = () => {
     return koaRouteFactory(
         logger,
         getApiStatusController,
-        defaultKoaDeserializer,
-        healthKoaSerializer,
+        defaultDeserializerKoa,
+        healthSerializerKoa,
     );
 };

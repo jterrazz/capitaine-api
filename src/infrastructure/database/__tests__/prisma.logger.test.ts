@@ -3,7 +3,7 @@ import { mock } from 'jest-mock-extended';
 
 import { Logger } from '@ports/logger';
 
-import { prismaLoggerFactory } from '@infrastructure/database/prisma.logger';
+import { prismaLoggerFactory } from '@infrastructure/database/prisma-logger';
 
 describe('prismaLogger', () => {
     const mockOfLogger = mock<Logger>();

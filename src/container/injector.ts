@@ -11,9 +11,11 @@ import { injectableServerFactory } from '@infrastructure/server/server.injectabl
 
 import packageJson from '../../package.json';
 
+const environment = (process.env.NODE_ENV as Environment) || Environment.Development;
+
 export const container = createInjector()
     // Values
-    .provideValue('environment', process.env.NODE_ENV || Environment.Development)
+    .provideValue('environment', environment)
     .provideValue('version', packageJson.version)
 
     // Application

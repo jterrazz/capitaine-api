@@ -2,24 +2,26 @@ import { mock } from 'jest-mock-extended';
 
 import { getUserControllerFactory } from '@application/get-user.use-case';
 
-import { ExposedError } from '@domain/errors/exposed.error';
-import { NotFoundError } from '@domain/errors/functional/not-found.error';
+import { NotFoundError } from '@domain/errors/functionnal/not-found.error';
 import { createMockOfUser } from '@domain/models/user/__tests__/user.mock';
 
 import { UserRepository } from '@ports/database';
 import { Logger } from '@ports/logger';
 
+// TODO Continue checking tests after this file (remove should, remove mockOf, simplify given, get out some shared props)
+
+const mockOfLogger = mock<Logger>();
+const mockOfUser = createMockOfUser();
+
 describe('getUserControllerFactory()', () => {
     test('should return a user', async () => {
         // Given
-        const mockOfUser = createMockOfUser();
         const mockOfUserRepository = mock<UserRepository>({
             findById: jest.fn().mockResolvedValue(mockOfUser),
         });
-        const mockOfLogger = mock<Logger>();
-        const getUserController = getUserControllerFactory(mockOfUserRepository, mockOfLogger);
 
         // When
+        const getUserController = getUserControllerFactory(mockOfUserRepository, mockOfLogger);
         const user = await getUserController(1);
 
         // Then
@@ -31,18 +33,17 @@ describe('getUserControllerFactory()', () => {
         const mockOfUserRepository = mock<UserRepository>({
             findById: jest.fn().mockResolvedValue(null),
         });
-        const mockOfLogger = mock<Logger>();
-        const getUserController = getUserControllerFactory(mockOfUserRepository, mockOfLogger);
 
         // When
+        const getUserController = getUserControllerFactory(mockOfUserRepository, mockOfLogger);
         const ft = () => getUserController(1);
 
         // Then
         await expect(ft).rejects.toThrow(
-            new ExposedError(
-                new NotFoundError(undefined, 'User with id 1 not found'),
-                'User not found',
-            ),
+            expect.objectContaining({
+                cause: expect.any(NotFoundError),
+                message: 'User not found',
+            }),
         );
     });
 });

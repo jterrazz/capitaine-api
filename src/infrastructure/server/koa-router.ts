@@ -2,9 +2,10 @@ import Router from 'koa-router';
 
 import { Logger } from '@ports/logger';
 
-import { apiVersionKoaMiddlewareFactory } from '@adapters/middlewares/api-version.koa-middleware';
-import { errorHandlerKoaMiddlewareFactory } from '@adapters/middlewares/error-handler.koa-middleware';
+import { apiVersionKoaMiddlewareFactory } from '@adapters/middlewares/api-version-middleware.koa';
+import { errorHandlerKoaMiddlewareFactory } from '@adapters/middlewares/error-handler-middleware.koa';
 
+// TODO Bad architecture if this import exist
 import { getHealthKoaRouteFactory } from '../../container/routes/health/koa.get-route';
 import { getUserByIdKoaRouteFactory } from '../../container/routes/users/koa.get-route';
 

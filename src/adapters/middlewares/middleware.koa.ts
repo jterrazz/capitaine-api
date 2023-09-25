@@ -1,4 +1,4 @@
-import { KoaContext } from '@adapters/routes/koa-deserializer.adapter';
+import { KoaContext } from '@adapters/routes/deserializer.koa';
 
 export interface KoaMiddleware {
     (ctx: KoaContext, next: () => Promise<CallableFunction>): Promise<void>;

@@ -1,8 +1,8 @@
 import { GetHealthController } from '@domain/controllers/get-health.controller';
-import { HealthMetadata } from '@domain/models/health/health-metadata';
+import { ApiHealth } from '@domain/models/api-health/api-health';
 
 export const getHealthControllerFactory = (
-    getHealthMetadata: () => HealthMetadata,
+    getHealthMetadata: () => ApiHealth,
 ): GetHealthController => {
     return async () => {
         return getHealthMetadata();

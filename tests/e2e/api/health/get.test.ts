@@ -30,7 +30,7 @@ describe('E2E - GET /health', function () {
 
         // Then
         expect(response.headers['api-version']).toEqual(
-            (await import('../../../../package.json')).version,
+            (await import('../../../../package.json')).default.version,
         );
         expect(response.headers['content-type']).toEqual('application/json; charset=utf-8');
     });

@@ -23,14 +23,14 @@ const mapExposedErrorToResponse = (
     for (const [errorName, status, message] of ErrorToResponseMap) {
         if (exposedError.cause.constructor.name === errorName) {
             return {
-                message: exposedError.publicMessage ?? message,
+                message: exposedError.message ?? message,
                 status,
             };
         }
     }
 
     return {
-        message: exposedError.publicMessage ?? DEFAULT_ERROR_MESSAGE,
+        message: exposedError.message ?? DEFAULT_ERROR_MESSAGE,
         status: DEFAULT_ERROR_STATUS,
     };
 };

@@ -3,7 +3,7 @@ import { Configuration } from '@configuration/configuration';
 import { Logger } from '@ports/logger';
 
 import { PrismaFactory } from '@infrastructure/database/prisma';
-import { prismaUserRepositoryFactory } from '@infrastructure/database/repositories/prisma.user-repository';
+import { prismaUserRepositoryFactory } from '@infrastructure/database/repositories/user-repository.prisma';
 
 export const injectableRepositoriesFactory = (logger: Logger, configuration: Configuration) => {
     const prismaClient = PrismaFactory.getPrismaClient(
