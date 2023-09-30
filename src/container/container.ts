@@ -1,11 +1,10 @@
 import { createInjector } from 'typed-inject';
 
-import { injectableConfigurationFactory } from '@configuration/configuration.injectable';
-
 import { Environment } from '@infrastructure/environment';
 
 import packageJson from '../../package.json';
 
+import { injectableConfigurationFactory } from './injectable.configuration';
 import { injectableDatabaseFactory } from './injectable.database';
 import { injectableLoggerFactory } from './injectable.logger';
 import { injectableRepositoriesFactory } from './injectable.repositories';

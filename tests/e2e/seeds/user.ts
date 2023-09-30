@@ -1,8 +1,8 @@
 import * as crypto from 'crypto';
 
-import { User } from '@domain/models/user/user';
+import { User } from '@domain/models/user';
 
-import { container } from '../../../src/container/injector';
+import { container } from '../../../src/container/container';
 
 export const dangerouslySeedUser = async (
     { email } = {

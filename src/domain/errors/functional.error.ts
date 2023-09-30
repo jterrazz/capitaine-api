@@ -18,7 +18,3 @@ export class FunctionalError extends Error {
         this.cause = cause;
     }
 }
-
-export const isFunctionalError = (error: unknown): error is FunctionalError => {
-    return error instanceof FunctionalError;
-};

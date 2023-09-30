@@ -12,6 +12,7 @@ import { defaultDeserializerKoa } from '@adapters/routes/default-deserializer.ko
 import { getUserDeserializerKoa } from '@adapters/routes/user/get-user-deserializer.koa';
 import { getUserSerializerKoa } from '@adapters/routes/user/get-user-serializer.koa';
 
+import { getHttpResponseFromError } from '@infrastructure/http/get-http-response-from-error';
 import { koaRouteFactory } from '@infrastructure/server/koa-route';
 
 export const koaRouterFactory = (
@@ -28,7 +29,10 @@ export const koaRouterFactory = (
 
     // Middlewares
     const apiVersionKoaMiddleware = apiVersionKoaMiddlewareFactory(version);
-    const errorHandlerKoaMiddleware = errorHandlerKoaMiddlewareFactory(logger);
+    const errorHandlerKoaMiddleware = errorHandlerKoaMiddlewareFactory(
+        logger,
+        getHttpResponseFromError,
+    );
 
     // Routes
     const getHealthKoaRoute = koaRouteFactory(

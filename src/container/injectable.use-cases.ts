@@ -1,8 +1,8 @@
 import { getApiHealthUseCaseFactory } from '@application/get-api-health.use-case';
 import { getUserUseCaseFactory } from '@application/get-user.use-case';
 
-import { UserRepository } from '@ports/database';
 import { Logger } from '@ports/logger';
+import { UserRepository } from '@ports/repositories';
 
 export const injectableUseCasesFactory = (
     apiVersion: string,

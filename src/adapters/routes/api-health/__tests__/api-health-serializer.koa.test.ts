@@ -2,8 +2,8 @@ import { useFakeTimers, useRealTimers } from '@tests/helpers/timer';
 import { mock } from 'jest-mock-extended';
 import { RouterContext } from 'koa-router';
 
-import { ApiHealth } from '@domain/models/api-health/api-health';
-import { ApiHealthStatus } from '@domain/models/api-health/api-health-status';
+import { ApiHealth } from '@domain/models/api-health';
+import { ApiHealthStatus } from '@domain/models/api-health-status';
 
 import { apiHealthSerializerKoa } from '@adapters/routes/api-health/api-health-serializer.koa';
 

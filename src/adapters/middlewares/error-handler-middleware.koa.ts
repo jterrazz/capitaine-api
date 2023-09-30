@@ -1,64 +1,32 @@
-import { StatusCodes } from 'http-status-codes';
 import Router from 'koa-router';
 
-import { ExposedError } from '@domain/errors/exposed.error';
+import { isError } from '@domain/errors/error';
 
 import { Logger } from '@ports/logger';
 
-const DEFAULT_ERROR_MESSAGE = 'Internal server error';
-const DEFAULT_ERROR_STATUS = StatusCodes.INTERNAL_SERVER_ERROR;
-
-const ErrorToResponseMap: Array<[string, StatusCodes, string]> = [
-    ['NotFoundError', StatusCodes.NOT_FOUND, 'Not found'],
-    ['UnprocessableEntityError', StatusCodes.UNPROCESSABLE_ENTITY, 'Unprocessable entity'],
-    ['InternalServerError', DEFAULT_ERROR_STATUS, DEFAULT_ERROR_MESSAGE],
-];
-
-const mapExposedErrorToResponse = (
-    exposedError: ExposedError,
-): {
-    status: StatusCodes;
-    message: string;
-} => {
-    for (const [errorName, status, message] of ErrorToResponseMap) {
-        if (exposedError.cause.constructor.name === errorName) {
-            return {
-                message: exposedError.message ?? message,
-                status,
-            };
-        }
-    }
-
-    return {
-        message: exposedError.message ?? DEFAULT_ERROR_MESSAGE,
-        status: DEFAULT_ERROR_STATUS,
-    };
-};
-
-export const errorHandlerKoaMiddlewareFactory = (logger: Logger): Router.IMiddleware => {
+export const errorHandlerKoaMiddlewareFactory = (
+    logger: Logger,
+    getHttpResponseFromError: (error: Error) => { status: number; message: string },
+): Router.IMiddleware => {
     return async (ctx, next) => {
         try {
             await next();
         } catch (err) {
             logger.debug('error handler middleware caught an error');
 
-            if (err instanceof ExposedError) {
-                const { status, message } = mapExposedErrorToResponse(err);
-
-                ctx.status = status;
-                ctx.body = {
-                    message,
-                };
-
-                return;
+            if (!isError(err)) {
+                logger.error(`Unexpected error type - ${err}`);
+                throw new Error(`Unexpected error type - ${err}`);
             }
 
-            logger.error(err);
+            const { status, message } = getHttpResponseFromError(err);
 
-            ctx.status = DEFAULT_ERROR_STATUS;
+            ctx.status = status;
             ctx.body = {
-                message: DEFAULT_ERROR_MESSAGE,
+                message,
             };
+
+            logger.error(err);
         }
     };
 };

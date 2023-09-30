@@ -4,7 +4,7 @@ import Router from 'koa-router';
 import { apiVersionKoaMiddlewareFactory } from '@adapters/middlewares/api-version-middleware.koa';
 
 describe('apiVersionKoaMiddleware()', () => {
-    test('set api-version header', async () => {
+    test('set context with an api-version header', async () => {
         // Given
         const apiVersion = '1.0.0';
         const context = mock<Router.RouterContext>();

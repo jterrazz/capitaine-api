@@ -1,7 +1,7 @@
 import { StatusCodes } from 'http-status-codes';
 import { RouterContext } from 'koa-router';
 
-import { ApiHealth } from '@domain/models/api-health/api-health';
+import { ApiHealth } from '@domain/models/api-health';
 
 import { KoaSerializer } from '@adapters/routes/serializer.koa';
 

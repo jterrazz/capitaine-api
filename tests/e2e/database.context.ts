@@ -1,4 +1,4 @@
-import { container } from '../../src/container/injector';
+import { container } from '../../src/container/container';
 
 export const databaseContextFactory = () => {
     return container.resolve('database');

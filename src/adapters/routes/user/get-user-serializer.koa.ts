@@ -1,7 +1,7 @@
 import { StatusCodes } from 'http-status-codes';
 import { RouterContext } from 'koa-router';
 
-import { User } from '@domain/models/user/user';
+import { User } from '@domain/models/user';
 
 import { KoaSerializer } from '@adapters/routes/serializer.koa';
 

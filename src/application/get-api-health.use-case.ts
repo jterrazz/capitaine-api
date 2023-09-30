@@ -1,7 +1,7 @@
 import { UseCase } from '@application/use-case';
 
-import { ApiHealth } from '@domain/models/api-health/api-health';
-import { ApiHealthStatus } from '@domain/models/api-health/api-health-status';
+import { ApiHealth } from '@domain/models/api-health';
+import { ApiHealthStatus } from '@domain/models/api-health-status';
 
 export type GetApiHealthUseCase = UseCase<void, ApiHealth>;
 

@@ -18,7 +18,3 @@ export class TechnicalError extends Error {
         this.cause = cause;
     }
 }
-
-export const isTechnicalError = (error: unknown): error is TechnicalError => {
-    return error instanceof TechnicalError;
-};

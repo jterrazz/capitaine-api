@@ -1,7 +1,7 @@
 import { mock } from 'jest-mock-extended';
 import { RouterContext } from 'koa-router';
 
-import { User } from '@domain/models/user/user';
+import { User } from '@domain/models/user';
 
 import { getUserSerializerKoa } from '@adapters/routes/user/get-user-serializer.koa';
 

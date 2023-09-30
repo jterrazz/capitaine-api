@@ -1,4 +1,4 @@
-import { container } from './container/injector';
+import { container } from './container/container';
 
 import { apiFactory } from './api';
 

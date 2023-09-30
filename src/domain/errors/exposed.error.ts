@@ -9,3 +9,7 @@ export class ExposedError extends Error {
         super();
     }
 }
+
+export const isExposedError = (error: unknown): error is ExposedError => {
+    return error instanceof ExposedError;
+};

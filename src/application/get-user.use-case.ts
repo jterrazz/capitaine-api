@@ -2,10 +2,10 @@ import { UseCase } from '@application/use-case';
 
 import { ExposedError } from '@domain/errors/exposed.error';
 import { NotFoundError } from '@domain/errors/functionnal/not-found.error';
-import { User } from '@domain/models/user/user';
+import { User } from '@domain/models/user';
 
-import { UserRepository } from '@ports/database';
 import { Logger } from '@ports/logger';
+import { UserRepository } from '@ports/repositories';
 
 export type GetUserUseCase = UseCase<number, User>;
 
