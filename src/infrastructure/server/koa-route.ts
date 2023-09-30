@@ -1,24 +1,24 @@
-import { Controller } from '@domain/controllers/controller';
+import Router from 'koa-router';
+
+import { UseCase } from '@application/use-case';
 
 import { Logger } from '@ports/logger';
 
 import { KoaDeserializer } from '@adapters/routes/deserializer.koa';
 import { readInputKoaFactory } from '@adapters/routes/read-input.koa';
 import { KoaSerializer } from '@adapters/routes/serializer.koa';
-import ResolvedValue = jest.ResolvedValue;
-import Router from 'koa-router';
 
-export const koaRouteFactory = <T extends Controller<any, any>>( // eslint-disable-line  @typescript-eslint/no-explicit-any
+export const koaRouteFactory = <T extends UseCase<any, any>>( // eslint-disable-line  @typescript-eslint/no-explicit-any
     logger: Logger,
-    controller: T,
-    deserializer: KoaDeserializer<Parameters<typeof controller>[0]>,
-    serializer: KoaSerializer<ResolvedValue<ReturnType<typeof controller>>>,
+    useCase: T,
+    deserializer: KoaDeserializer<Parameters<typeof useCase>[0]>,
+    serializer: KoaSerializer<Awaited<ReturnType<typeof useCase>>>,
 ): Router.IMiddleware => {
     return async (ctx: Router.RouterContext): Promise<void> => {
         const readInput = readInputKoaFactory(logger, ctx);
 
         const input = await deserializer(readInput);
-        const output = await controller(input);
+        const output = await useCase(input);
 
         await serializer(ctx, output);
     };

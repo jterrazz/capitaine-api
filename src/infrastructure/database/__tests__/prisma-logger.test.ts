@@ -5,9 +5,9 @@ import { Logger } from '@ports/logger';
 
 import { prismaLoggerFactory } from '@infrastructure/database/prisma-logger';
 
-describe('prismaLogger', () => {
-    const mockOfLogger = mock<Logger>();
+const logger = mock<Logger>();
 
+describe('PrismaLogger', () => {
     afterEach(() => {
         jest.clearAllMocks();
     });
@@ -17,15 +17,15 @@ describe('prismaLogger', () => {
         ['info', 'info'],
         ['warn', 'warn'],
         ['error', 'error'],
-    ])('should call the correct logger method for log level %s', (level, loggerMethod) => {
+    ])('call the correct logger method for log level %s', (level, loggerMethod) => {
         // Given
-        const prismaLogger = prismaLoggerFactory(mockOfLogger);
+        const prismaLogger = prismaLoggerFactory(logger);
         const message = `Test message for level: ${level}`;
 
         // When
         prismaLogger(level, message);
 
         // Then
-        expect(mockOfLogger[loggerMethod]).toHaveBeenCalledWith(message);
+        expect(logger[loggerMethod]).toHaveBeenCalledWith(message);
     });
 });

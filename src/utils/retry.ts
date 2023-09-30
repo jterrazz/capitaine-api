@@ -1,10 +1,10 @@
 import { sleep } from '@utils/sleep';
 
-interface RetryOptions {
+type RetryOptions = {
     tries?: number;
     delay?: number;
     onError?: (error: unknown) => void;
-}
+};
 
 export const retry = async <T>(fn: () => Promise<T>, options: RetryOptions = {}): Promise<T> => {
     const { tries = 10, delay = 1000 } = options;

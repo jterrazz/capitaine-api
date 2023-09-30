@@ -18,11 +18,11 @@ beforeEach(() => {
     prismaEventHandlers = {};
 });
 
-describe('prismaClient', () => {
+describe('PrismaClient', () => {
     const databaseUrl = 'the-database-url';
     const prismaLogger: PrismaLogger = jest.fn();
 
-    test('should create a new PrismaClient instance with the provided database URL', () => {
+    test('create a new PrismaClient instance with the provided database URL', () => {
         // Given - When
         prismaClientFactory(databaseUrl, prismaLogger);
 
@@ -32,7 +32,7 @@ describe('prismaClient', () => {
     });
 
     test.each(['query', 'info', 'warn', 'error'])(
-        'should log information when the <%s> event is emitted',
+        'log information when the <%s> event is emitted',
         (level) => {
             // Given
             const message = 'the-message';

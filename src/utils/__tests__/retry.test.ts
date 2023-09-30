@@ -23,7 +23,7 @@ afterEach(() => {
 });
 
 describe('retry', () => {
-    test('should resolve immediately if function succeeds on the first try', async () => {
+    test('resolve immediately if function succeeds on the first try', async () => {
         // Given
         const fn = jest.fn(async () => 'success');
 
@@ -35,7 +35,7 @@ describe('retry', () => {
         expect(fn).toHaveBeenCalledTimes(1);
     });
 
-    test('should resolve after a few tries if function eventually succeeds', async () => {
+    test('resolve after a few tries if function eventually succeeds', async () => {
         // Given
         const fn = createMockOfResolvingFn('success', 3);
 
@@ -49,7 +49,7 @@ describe('retry', () => {
         });
     });
 
-    test('should reject if function always fails within the given tries', async () => {
+    test('reject if function always fails within the given tries', async () => {
         // Given
         const fn = jest.fn(async () => {
             throw new Error('failure');
@@ -66,7 +66,7 @@ describe('retry', () => {
         });
     });
 
-    test('should call onError for each failed attempt', async () => {
+    test('call onError for each failed attempt', async () => {
         // Given
         const fn = createMockOfResolvingFn('success', 3);
         const onError = jest.fn();

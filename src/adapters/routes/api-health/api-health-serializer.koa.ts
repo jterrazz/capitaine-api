@@ -5,7 +5,7 @@ import { ApiHealth } from '@domain/models/api-health/api-health';
 
 import { KoaSerializer } from '@adapters/routes/serializer.koa';
 
-export const healthSerializerKoa: KoaSerializer<ApiHealth> = (
+export const apiHealthSerializerKoa: KoaSerializer<ApiHealth> = (
     ctx: RouterContext,
     apiStatus: ApiHealth,
 ) => {

@@ -1,4 +1,4 @@
-import { FunctionalError } from '@domain/errors/functionnal/functional-error';
+import { FunctionalError } from '@domain/errors/functional.error';
 
 export class NotFoundError extends FunctionalError {
     constructor({ message, cause }: { message?: string; cause?: unknown } = {}) {

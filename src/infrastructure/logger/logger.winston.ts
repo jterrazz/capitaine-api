@@ -1,8 +1,8 @@
 import winston from 'winston';
 
-import { Environment } from '@domain/environment';
-
 import { Logger, LoggerLevel } from '@ports/logger';
+
+import { Environment } from '@infrastructure/environment';
 
 export const winstonLoggerFactory = (environment: Environment, level: LoggerLevel): Logger => {
     const readableEnvironment =

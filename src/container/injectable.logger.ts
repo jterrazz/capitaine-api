@@ -1,7 +1,6 @@
 import { Configuration } from '@configuration/configuration';
 
-import { Environment } from '@domain/environment';
-
+import { Environment } from '@infrastructure/environment';
 import { winstonLoggerFactory } from '@infrastructure/logger/logger.winston';
 
 export const injectableLoggerFactory = (environment: Environment, configuration: Configuration) => {

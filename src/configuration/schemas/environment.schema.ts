@@ -1,6 +1,6 @@
 import * as z from 'zod';
 
-import { Environment } from '@domain/environment';
+import { Environment } from '@infrastructure/environment';
 
 export const environmentConfigurationSchema = z.enum([
     Environment.Development,

@@ -8,7 +8,7 @@ import { readInputKoaFactory } from '@adapters/routes/read-input.koa';
 
 const context = mock<RouterContext>();
 
-describe('defaultKoaDeserializer()', () => {
+describe('defaultDeserializerKoa()', () => {
     test('return 200 status code', () => {
         // Given
         const readInput = readInputKoaFactory(mock<Logger>(), context);

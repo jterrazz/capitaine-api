@@ -11,7 +11,7 @@ describe('Prisma - User Repository', () => {
     const userRepository = container.resolve('repositories').userRepository;
 
     describe('findByEmail()', () => {
-        test('should return null when a user is not found', async () => {
+        test('return null when a user is not found', async () => {
             // Given
             const unknownEmail = 'unknown@example.com';
 
@@ -22,7 +22,7 @@ describe('Prisma - User Repository', () => {
             expect(user).toBeNull();
         });
 
-        test('should return a user when found', async () => {
+        test('return a user when found', async () => {
             // Given
             const seededUser = await dangerouslySeedUser();
 
@@ -35,7 +35,7 @@ describe('Prisma - User Repository', () => {
     });
 
     describe('findById()', () => {
-        test('should return null when a user is not found', async () => {
+        test('return null when a user is not found', async () => {
             // Given
             const unknownId = -1;
 
@@ -46,11 +46,9 @@ describe('Prisma - User Repository', () => {
             expect(user).toBeNull();
         });
 
-        test('should return a user when found', async () => {
+        test('return a user when found', async () => {
             // Given
             const seededUser = await dangerouslySeedUser();
-
-            console.log(seededUser);
 
             // When
             const user = await userRepository.findById(seededUser.id);

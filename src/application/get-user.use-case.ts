@@ -1,14 +1,18 @@
-import { GetUserController } from '@domain/controllers/get-user.controller';
+import { UseCase } from '@application/use-case';
+
 import { ExposedError } from '@domain/errors/exposed.error';
 import { NotFoundError } from '@domain/errors/functionnal/not-found.error';
+import { User } from '@domain/models/user/user';
 
 import { UserRepository } from '@ports/database';
 import { Logger } from '@ports/logger';
 
-export const getUserControllerFactory = (
+export type GetUserUseCase = UseCase<number, User>;
+
+export const getUserUseCaseFactory = (
     userRepository: UserRepository,
     logger: Logger,
-): GetUserController => {
+): GetUserUseCase => {
     return async (id: number) => {
         const user = await userRepository.findById(id);
 

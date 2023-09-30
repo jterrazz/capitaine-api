@@ -7,7 +7,7 @@ import { getUserSerializerKoa } from '@adapters/routes/user/get-user-serializer.
 
 const context = mock<RouterContext>();
 
-describe('getUserKoaSerializer()', () => {
+describe('getUserSerializerKoa()', () => {
     test('serialize user', () => {
         // Given
         const user: User = {

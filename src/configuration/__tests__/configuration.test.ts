@@ -1,9 +1,9 @@
 import { configurationFactory } from '@configuration/configuration';
 
-import { Environment } from '@domain/environment';
+import { Environment } from '@infrastructure/environment';
 
 describe('configuration', () => {
-    test('should return default values of configuration', async () => {
+    test('return default values of configuration', async () => {
         // When
         const result = configurationFactory(Environment.Test);
 
@@ -22,11 +22,10 @@ describe('configuration', () => {
                 VERSION: '1.0.0',
             },
             ENVIRONMENT: 'test',
-            // SERVICES: {},
         });
     });
 
-    test('should throw when a required variable is missing', async () => {
+    test('throw when a required variable is missing', async () => {
         // Given
         const nodeEnv = null;
 

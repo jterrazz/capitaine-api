@@ -2,29 +2,31 @@ import { createInjector } from 'typed-inject';
 
 import { injectableConfigurationFactory } from '@configuration/configuration.injectable';
 
-import { Environment } from '@domain/environment';
-
-import { injectableDatabaseFactory } from '@infrastructure/database/database.injectable';
-import { injectableRepositoriesFactory } from '@infrastructure/database/repositories/repositories.injectable';
-import { injectableLoggerFactory } from '@infrastructure/logger/logger.injectable';
-import { injectableServerFactory } from '@infrastructure/server/server.injectable';
+import { Environment } from '@infrastructure/environment';
 
 import packageJson from '../../package.json';
+
+import { injectableDatabaseFactory } from './injectable.database';
+import { injectableLoggerFactory } from './injectable.logger';
+import { injectableRepositoriesFactory } from './injectable.repositories';
+import { injectableServerFactory } from './injectable.server';
+import { injectableUseCasesFactory } from './injectable.use-cases';
 
 const environment = (process.env.NODE_ENV as Environment) || Environment.Development;
 
 export const container = createInjector()
-    // Values
+    // Configuration
     .provideValue('environment', environment)
-    .provideValue('version', packageJson.version)
-
-    // Application
+    .provideValue('apiVersion', packageJson.version)
     .provideFactory('configuration', injectableConfigurationFactory)
+
+    // Infrastructure
     .provideFactory('logger', injectableLoggerFactory)
     .provideFactory('database', injectableDatabaseFactory)
-
-    // Repositories
     .provideFactory('repositories', injectableRepositoriesFactory)
+
+    // Application
+    .provideFactory('useCases', injectableUseCasesFactory)
 
     // Server
     .provideFactory('server', injectableServerFactory);

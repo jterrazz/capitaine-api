@@ -24,7 +24,7 @@ export const apiFactory = (
                 delay: 500,
                 onError: (error) => {
                     logger.error('failed to connect to database, will try again in 500 ms');
-                    logger.error(error.message);
+                    logger.error(error);
                 },
                 tries: 20,
             });

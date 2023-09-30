@@ -13,7 +13,7 @@ afterAll(() => {
 });
 
 describe('E2E - GET /users/:id', function () {
-    test('should respond with 200 when user exists', async () => {
+    test('respond with 200 when user exists', async () => {
         // Given
         const user = await dangerouslySeedUser();
         const url = `/users/${user.id}`;
@@ -29,7 +29,7 @@ describe('E2E - GET /users/:id', function () {
         });
     });
 
-    test('should respond with 404 when user does not exist', async () => {
+    test('respond with 404 when user does not exist', async () => {
         // Given
         const url = `/users/${crypto.randomInt(0, 1_000_000_000)}`;
 
@@ -43,7 +43,7 @@ describe('E2E - GET /users/:id', function () {
         });
     });
 
-    test('should respond with 422 when id is not a number', async () => {
+    test('respond with 422 when id is not a number', async () => {
         // Given
         const url = `/users/abc`;
 

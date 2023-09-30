@@ -26,7 +26,7 @@ afterEach(() => {
 });
 
 describe('sleep', () => {
-    test('should resolve after the specified duration', async () => {
+    test('resolve after the specified duration', async () => {
         // Given
         const duration = 1000;
 
@@ -37,7 +37,7 @@ describe('sleep', () => {
         expect(promiseResolved).toHaveBeenCalledTimes(1);
     });
 
-    test('should not resolve before the specified duration', async () => {
+    test('does not resolve before the specified duration', async () => {
         // Given
         const duration = 1000;
 

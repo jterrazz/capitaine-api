@@ -5,7 +5,7 @@ import { RouterContext } from 'koa-router';
 import { ApiHealth } from '@domain/models/api-health/api-health';
 import { ApiHealthStatus } from '@domain/models/api-health/api-health-status';
 
-import { healthSerializerKoa } from '@adapters/routes/health/health-serializer.koa';
+import { apiHealthSerializerKoa } from '@adapters/routes/api-health/api-health-serializer.koa';
 
 beforeAll(() => {
     useFakeTimers();
@@ -17,7 +17,7 @@ afterAll(() => {
 
 const context = mock<RouterContext>();
 
-describe('apiStatusKoaSerializer()', () => {
+describe('apiHealthSerializerKoa()', () => {
     test('serialize status information', () => {
         // Given
         const apiInformation: ApiHealth = {
@@ -28,7 +28,7 @@ describe('apiStatusKoaSerializer()', () => {
         };
 
         // When
-        healthSerializerKoa(context, apiInformation);
+        apiHealthSerializerKoa(context, apiInformation);
 
         // Then
         expect(context.status).toBe(200);

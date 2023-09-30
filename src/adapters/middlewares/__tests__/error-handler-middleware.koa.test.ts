@@ -4,7 +4,7 @@ import Router from 'koa-router';
 import { ExposedError } from '@domain/errors/exposed.error';
 import { NotFoundError } from '@domain/errors/functionnal/not-found.error';
 import { UnprocessableEntityError } from '@domain/errors/functionnal/unprocessable-entity.error';
-import { TechnicalError } from '@domain/errors/technical/technical-error';
+import { TechnicalError } from '@domain/errors/technical.error';
 
 import { Logger } from '@ports/logger';
 

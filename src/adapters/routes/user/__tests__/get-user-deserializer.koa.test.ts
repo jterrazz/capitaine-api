@@ -10,7 +10,7 @@ import { getUserDeserializerKoa } from '@adapters/routes/user/get-user-deseriali
 
 const logger = mock<Logger>();
 
-describe('getUserKoaDeserializer()', () => {
+describe('getUserDeserializerKoa()', () => {
     test('return the user id', () => {
         // Given
         const context = mock<RouterContext>({

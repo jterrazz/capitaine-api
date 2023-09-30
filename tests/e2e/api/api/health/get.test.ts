@@ -9,10 +9,10 @@ afterAll(() => {
     useRealTimers();
 });
 
-describe('E2E - GET /health', function () {
-    test('should respond with api health information', async () => {
+describe('E2E - GET /api/health', function () {
+    test('respond with api health information', async () => {
         // When
-        const response = await TestContext.request().get('/health');
+        const response = await TestContext.request().get('/api/health');
 
         // Then
         expect(response.status).toEqual(200);
@@ -24,13 +24,13 @@ describe('E2E - GET /health', function () {
         });
     });
 
-    test('should respond with global headers', async () => {
+    test('respond with global headers', async () => {
         // When
-        const response = await TestContext.request().get('/health');
+        const response = await TestContext.request().get('/api/health');
 
         // Then
         expect(response.headers['api-version']).toEqual(
-            (await import('../../../../package.json')).default.version,
+            (await import('../../../../../package.json')).default.version,
         );
         expect(response.headers['content-type']).toEqual('application/json; charset=utf-8');
     });
