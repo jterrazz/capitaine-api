@@ -19,12 +19,8 @@ elif [ "$1" = "test" ]; then
     docker $COMPOSE_ARGUMENT run $HOT_RELOAD_ARGUMENT daily-rise-api yarn test
 elif [ "$1" = "test:unit" ]; then
     docker $COMPOSE_ARGUMENT run $HOT_RELOAD_ARGUMENT daily-rise-api yarn test:unit
-elif [ "$1" = "test:e2e" ]; then
-    docker $COMPOSE_ARGUMENT run $HOT_RELOAD_ARGUMENT daily-rise-api yarn test:e2e
-
-# Run the linter
-elif [ "$1" = "lint" ]; then
-    docker $COMPOSE_ARGUMENT run $HOT_RELOAD_ARGUMENT daily-rise-api yarn lint
+elif [ "$1" = "test:integration" ]; then
+    docker $COMPOSE_ARGUMENT run $HOT_RELOAD_ARGUMENT daily-rise-api yarn test:integration
 
 # Build the application
 elif [ "$1" = "build" ]; then

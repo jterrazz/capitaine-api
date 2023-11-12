@@ -20,7 +20,7 @@ describe('getUserSerializerKoa()', () => {
 
         // Then
         expect(context.status).toBe(200);
-        expect(context.body).toEqual({
+        expect(context.body).toStrictEqual({
             email: 'email',
             id: 1,
         });

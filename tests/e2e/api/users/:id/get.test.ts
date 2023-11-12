@@ -22,8 +22,8 @@ describe('E2E - GET /users/:id', function () {
         const response = await TestContext.request().get(url);
 
         // Then
-        expect(response.status).toEqual(200);
-        expect(response.body).toEqual({
+        expect(response.status).toStrictEqual(200);
+        expect(response.body).toStrictEqual({
             email: user.email,
             id: user.id,
         });
@@ -37,8 +37,8 @@ describe('E2E - GET /users/:id', function () {
         const response = await TestContext.request().get(url);
 
         // Then
-        expect(response.status).toEqual(404);
-        expect(response.body).toEqual({
+        expect(response.status).toStrictEqual(404);
+        expect(response.body).toStrictEqual({
             message: 'User not found',
         });
     });
@@ -51,8 +51,8 @@ describe('E2E - GET /users/:id', function () {
         const response = await TestContext.request().get(url);
 
         // Then
-        expect(response.status).toEqual(422);
-        expect(response.body).toEqual({
+        expect(response.status).toStrictEqual(422);
+        expect(response.body).toStrictEqual({
             message: 'Request param validation failed',
         });
     });

@@ -1,8 +1,5 @@
 {
     "compilerOptions": {
-        "lib": ["ESNext"],
-        "module": "NodeNext",
-
         "paths": {
             "@adapters/*": ["./src/adapters/*"],
             "@application/*": ["./src/application/*"],

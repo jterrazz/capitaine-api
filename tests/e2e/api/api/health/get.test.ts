@@ -15,8 +15,8 @@ describe('E2E - GET /api/health', function () {
         const response = await TestContext.request().get('/api/health');
 
         // Then
-        expect(response.status).toEqual(200);
-        expect(response.body).toEqual({
+        expect(response.status).toStrictEqual(200);
+        expect(response.body).toStrictEqual({
             message: 'Hello World!',
             status: 'Up',
             time: '2000-01-01T00:00:00.000Z',
@@ -29,9 +29,9 @@ describe('E2E - GET /api/health', function () {
         const response = await TestContext.request().get('/api/health');
 
         // Then
-        expect(response.headers['api-version']).toEqual(
+        expect(response.headers['api-version']).toStrictEqual(
             (await import('../../../../../package.json')).default.version,
         );
-        expect(response.headers['content-type']).toEqual('application/json; charset=utf-8');
+        expect(response.headers['content-type']).toStrictEqual('application/json; charset=utf-8');
     });
 });

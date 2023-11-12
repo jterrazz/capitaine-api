@@ -32,7 +32,7 @@ describe('apiHealthSerializerKoa()', () => {
 
         // Then
         expect(context.status).toBe(200);
-        expect(context.body).toEqual({
+        expect(context.body).toStrictEqual({
             message: 'message',
             status: 'Up',
             time: '2000-01-01T00:00:00.000Z',
