@@ -1,9 +1,8 @@
 import { mock } from 'jest-mock-extended';
 
-import { getUserUseCaseFactory } from '@application/get-user.use-case';
-
 import { NotFoundError } from '@domain/errors/functionnal/not-found.error';
 import { createMockOfUser } from '@domain/models/__fixtures__/user.mock';
+import { getUserUseCaseFactory } from '@domain/use-cases/get-user.use-case';
 
 import { Logger } from '@ports/logger';
 import { UserRepository } from '@ports/repositories';

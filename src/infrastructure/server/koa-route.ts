@@ -1,6 +1,6 @@
 import Router from 'koa-router';
 
-import { UseCase } from '@application/use-case';
+import { UseCase } from '@domain/use-cases/use-case';
 
 import { Logger } from '@ports/logger';
 

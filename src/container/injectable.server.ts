@@ -1,5 +1,5 @@
-import { GetApiHealthUseCase } from '@application/get-api-health.use-case';
-import { GetUserUseCase } from '@application/get-user.use-case';
+import { GetApiHealthUseCase } from '@domain/use-cases/get-api-health.use-case';
+import { GetUserUseCase } from '@domain/use-cases/get-user.use-case';
 
 import { Logger } from '@ports/logger';
 import { Server } from '@ports/server';

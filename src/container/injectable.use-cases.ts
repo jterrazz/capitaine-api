@@ -1,5 +1,5 @@
-import { getApiHealthUseCaseFactory } from '@application/get-api-health.use-case';
-import { getUserUseCaseFactory } from '@application/get-user.use-case';
+import { getApiHealthUseCaseFactory } from '@domain/use-cases/get-api-health.use-case';
+import { getUserUseCaseFactory } from '@domain/use-cases/get-user.use-case';
 
 import { Logger } from '@ports/logger';
 import { UserRepository } from '@ports/repositories';

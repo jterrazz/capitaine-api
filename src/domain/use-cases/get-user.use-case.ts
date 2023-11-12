@@ -1,8 +1,7 @@
-import { UseCase } from '@application/use-case';
-
 import { ExposedError } from '@domain/errors/exposed.error';
 import { NotFoundError } from '@domain/errors/functionnal/not-found.error';
 import { User } from '@domain/models/user';
+import { UseCase } from '@domain/use-cases/use-case';
 
 import { Logger } from '@ports/logger';
 import { UserRepository } from '@ports/repositories';
