@@ -1,27 +1,27 @@
 version: "3.9"
 
 services:
-    daily-rise-api:
-        container_name: daily-rise-api
-        hostname: daily-rise-api
-        image: daily-rise-api
+    life-captain-api:
+        container_name: life-captain-api
+        hostname: life-captain-api
+        image: life-captain-api
         build:
             context: ../..
         depends_on:
-            - daily-rise-database
-            - daily-rise-database-migration
+            - life-captain-database
+            - life-captain-database-migration
         environment:
             - DATABASE_URL
 
-    daily-rise-database:
-        container_name: daily-rise-database
-        hostname: daily-rise-database
+    life-captain-database:
+        container_name: life-captain-database
+        hostname: life-captain-database
         image: postgres:15.2-alpine
         restart: always
         ports:
             - '5432:5432'
         environment:
-            - POSTGRES_DB=daily_rise
+            - POSTGRES_DB=life_captain
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=postgres
         volumes:
@@ -32,13 +32,13 @@ services:
             timeout: 5s
             retries: 42
 
-    daily-rise-database-migration:
-        container_name: daily-rise-database-migration
-        image: daily-rise-api
+    life-captain-database-migration:
+        container_name: life-captain-database-migration
+        image: life-captain-api
         build:
             context: ../..
         depends_on:
-            daily-rise-database:
+            life-captain-database:
                 condition: service_healthy
         environment:
             - DATABASE_URL

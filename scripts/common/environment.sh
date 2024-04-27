@@ -6,7 +6,7 @@ BASEDIR="${BASEDIR//\/scripts\/docker.sh}"
 # Specific variables for the Docker environment
 if [ -f /.dockerenv ] || [ "$ENVIRONMENT" = "docker" ]; then
     echo "Setting up environment for Docker usage";
-    DATABASE_HOST="daily-rise-database"
+    DATABASE_HOST="life-captain-database"
 else
     echo "Setting up environment for Local usage";
     DATABASE_HOST="localhost"
