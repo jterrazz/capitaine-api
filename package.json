@@ -7,10 +7,10 @@
     },
     "scripts": {
         "start": "node -r tsconfig-paths/register -r @swc-node/register src/start-api.ts",
-        "start:dev": "node --watch -r tsconfig-paths/register -r @swc-node/register src/start-api.ts",
+        "start-dev": "node --watch -r tsconfig-paths/register -r @swc-node/register src/start-api.ts",
         "test": "jest --silent",
-        "lint:type": "tsc --noEmit",
-        "lint:style": "eslint ."
+        "lint-type": "tsc",
+        "lint-style": "eslint ."
     },
     "devDependencies": {
         "@jterrazz/eslint-config-common": "3.3.0",

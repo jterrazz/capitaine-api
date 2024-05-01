@@ -18,7 +18,7 @@ start:
 	$(DOCKER_COMPOSE) run $(APPLICATION) npm run start
 
 start-dev:
-	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) npm run start:dev
+	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) npm run start-dev
 
 start-infra:
 	$(DOCKER_COMPOSE) up $(INFRASTRUCTURE)
@@ -27,10 +27,10 @@ test:
 	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) npm run test
 
 lint-type:
-	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) npm run lint:type
+	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) npm run lint-type
 
 lint-style:
-	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) npm run lint:style
+	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) npm run lint-style
 
 # Targets (database)
 LOCAL_ENVIRONMENT := source ./scripts/environment.sh
@@ -45,4 +45,4 @@ db-migrate:
 db-explore:
 	$(PRISMA) studio
 
-.PHONY: start start-dev start-infra test lint-type lint-style db-deploy db-migrate db-explore
+.PHONY: build start start-dev start-infra test lint-type lint-style db-deploy db-migrate db-explore
