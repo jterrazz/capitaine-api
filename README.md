@@ -36,7 +36,6 @@ make test
 
 If you want to run the project locally, you will need to install the following dependencies:
 - [Node.js](https://nodejs.org/en/download/)
-- [Yarn](https://yarnpkg.com/getting-started/install)
 
 Since this project requires external services (database, etc), you will need to run them manually.
 
@@ -48,19 +47,19 @@ make start-infra
 
 ```sh
 # Install dependencies
-yarn
+npm install
 
 # Start the project
-yarn start
+npm run start
 
 # Develop the project with hot reload
-yarn start:dev
+npm run start:dev
 ```
 
 #### Run tests
 
 ```sh
-yarn test
+npm run test
 ```
 
 ## Code quality 🏗

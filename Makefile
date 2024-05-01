@@ -15,22 +15,22 @@ build:
 	docker build . -t $(APPLICATION)
 
 start:
-	$(DOCKER_COMPOSE) run $(APPLICATION) yarn start
+	$(DOCKER_COMPOSE) run $(APPLICATION) npm run start
 
 start-dev:
-	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) yarn start:dev
+	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) npm run start:dev
 
 start-infra:
 	$(DOCKER_COMPOSE) up $(INFRASTRUCTURE)
 
 test:
-	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) yarn test
+	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) npm run test
 
 lint-type:
-	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) yarn lint:type
+	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) npm run lint:type
 
 lint-style:
-	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) yarn lint:style
+	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) npm run lint:style
 
 # Targets (database)
 LOCAL_ENVIRONMENT := source ./scripts/environment.sh

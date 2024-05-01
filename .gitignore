@@ -12,6 +12,4 @@ src/configuration/values/local.yml
 
 # NodeJS
 node_modules/
-.yarn
-yarn-error*
 dist

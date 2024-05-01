@@ -6,8 +6,8 @@ RUN apk add --no-cache --upgrade make bash
 
 # Step 1: Install Dependencies Only (used for cache)
 COPY ./package.json .
-COPY ./yarn.lock .
-RUN yarn install --frozen-lockfile
+COPY ./package-lock.json .
+RUN npm ci
 
 # Step 2: Copy Application Files
 COPY . .
