@@ -1,9 +1,5 @@
-version: "3.9"
-
 services:
     life-captain-api:
-        container_name: life-captain-api
-        hostname: life-captain-api
         image: life-captain-api
         build:
             context: ../..
@@ -14,8 +10,6 @@ services:
             - DATABASE_URL
 
     life-captain-database:
-        container_name: life-captain-database
-        hostname: life-captain-database
         image: postgres:15.2-alpine
         restart: always
         ports:
@@ -33,7 +27,6 @@ services:
             retries: 42
 
     life-captain-database-migration:
-        container_name: life-captain-database-migration
         image: life-captain-api
         build:
             context: ../..
@@ -42,4 +35,4 @@ services:
                 condition: service_healthy
         environment:
             - DATABASE_URL
-        command: [ "sh", "./scripts/database.sh", "deploy" ]
+        command: [ "make", "db-deploy" ]

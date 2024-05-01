@@ -7,34 +7,32 @@ on:
       - develop
 
 jobs:
-  tests:
-    name: Tests
+  test:
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - name: Set up repository
         uses: actions/checkout@v3
 
-      - name: Run unit tests
-        shell: bash
-        run: bash scripts/docker.sh test
+      - name: Run application tests
+        run: make test
 
-  linter:
-    name: Linter
+  lint-type:
+      name: Type Check
+      runs-on: ubuntu-latest
+      steps:
+          - name: Set up repository
+            uses: actions/checkout@v3
+
+          - name: Run type linter
+            run: make lint-type
+
+  lint-style:
+    name: Style Check
     runs-on: ubuntu-latest
     steps:
       - name: Set up repository
         uses: actions/checkout@v3
 
-      - name: Run linter
-        shell: bash
-        run: bash scripts/docker.sh lint
-
-  compiler:
-    name: Compiler
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up repository
-        uses: actions/checkout@v3
-
-      - name: Run TS compiler
-        run: bash scripts/docker.sh build
+      - name: Run style linter
+        run: make lint-style

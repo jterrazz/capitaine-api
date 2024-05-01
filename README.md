@@ -18,7 +18,7 @@ To launch the project, use the following command:
 
 ```sh
 # Start the project
-sh ./scripts/docker.sh start
+make start
 ```
 
 With this quick setup, you'll be ready to explore the power of our Open Market API and build seamless experiences for customers. Happy coding!
@@ -26,10 +26,10 @@ To help you **develop**, we provide a few scripts to run the project with hot re
 
 ```sh
 # Develop the project with hot reload
-sh ./scripts/docker.sh start:dev
+make start-dev
 
 # Run tests
-sh ./scripts/docker.sh test
+make test
 ```
 
 ### Quick start with Node.js
@@ -41,7 +41,7 @@ If you want to run the project locally, you will need to install the following d
 Since this project requires external services (database, etc), you will need to run them manually.
 
 ```sh
-sh ./scripts/docker.sh start:infra
+make start-infra
 ```
 
 #### Start the project

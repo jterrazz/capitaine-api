@@ -8,12 +8,9 @@
     "scripts": {
         "start": "node -r tsconfig-paths/register -r @swc-node/register src/start-api.ts",
         "start:dev": "node --watch -r tsconfig-paths/register -r @swc-node/register src/start-api.ts",
-        "build": "tsc --noEmit",
-        "build:watch": "tsc --watch --noEmit",
         "test": "jest --silent",
-        "test:unit": "jest --silent ./src",
-        "test:integration": "jest --silent ./tests",
-        "lint": "eslint ."
+        "lint:type": "tsc --noEmit",
+        "lint:style": "eslint ."
     },
     "devDependencies": {
         "@jterrazz/eslint-config-common": "3.3.0",
