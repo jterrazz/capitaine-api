@@ -11,6 +11,9 @@ DOCKER_ENVIRONMENT := ENVIRONMENT=docker source ./scripts/environment.sh
 DOCKER_COMPOSE := $(DOCKER_ENVIRONMENT) && docker compose -p $(PROJECT) -f $(BASEDIR)/scripts/docker/docker-compose.yml
 DOCKER_VOLUMES := -v "$(BASEDIR)/src:/home/src" -v "$(BASEDIR)/tests:/home/tests" -v "$(BASEDIR)/prisma:/home/prisma"
 
+build:
+	docker build . -t $(APPLICATION)
+
 start:
 	$(DOCKER_COMPOSE) run $(APPLICATION) yarn start
 
