@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "author": "Jean-Baptiste TERRAZZONI",
     "engines": {
-        "node": "20.x"
+        "node": "20.12.x"
     },
     "scripts": {
         "start": "node -r tsconfig-paths/register -r @swc-node/register src/start-api.ts",
