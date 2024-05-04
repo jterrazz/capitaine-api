@@ -1,29 +1,36 @@
 name: Quality Pipeline
 
 on:
-  push:
-    branches:
-      - main
-      - develop
+    push:
+        branches:
+            - main
+            - develop
 
 jobs:
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: make test
+    test:
+        name: Test
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - run: make test
 
-  lint-type:
-      name: Type Check
-      runs-on: ubuntu-latest
-      steps:
-          - uses: actions/checkout@v4
-          - run: make lint-type
+    lint-type:
+        name: Type Check
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - run: make lint-type
 
-  lint-style:
-    name: Style Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: make lint-style
+    lint-code:
+        name: Code Check
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - run: make lint-code
+
+    lint-style:
+        name: Style Check
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - run: make lint-style

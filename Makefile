@@ -29,6 +29,9 @@ test:
 lint-type:
 	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) npm run lint-type
 
+lint-code:
+	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) npm run lint-code
+
 lint-style:
 	$(DOCKER_COMPOSE) run $(DOCKER_VOLUMES) $(APPLICATION) npm run lint-style
 
@@ -45,4 +48,4 @@ db-migrate:
 db-explore:
 	$(PRISMA) studio
 
-.PHONY: build start start-dev start-infra test lint-type lint-style db-deploy db-migrate db-explore
+.PHONY: build start start-dev start-infra test lint-type lint-code lint-style db-deploy db-migrate db-explore

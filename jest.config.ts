@@ -11,7 +11,7 @@ const configuration = {
     testMatch: ['<rootDir>/(src|tests)/**/?(*.)+(spec|test).ts?(x)'],
     transform: {
         '^.+\\.(t|j)sx?$': '@swc/jest',
-    }
+    },
 };
 
 export default configuration;
