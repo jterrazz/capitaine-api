@@ -1,8 +1,9 @@
-import { databaseContextFactory } from '@tests/e2e/database.context';
-import { requestContextFactory } from '@tests/e2e/request.context';
 import request from 'supertest';
 
-import { Database } from '@ports/database';
+import { Database } from '../../src/ports/database.js';
+
+import { databaseContextFactory } from './database.context.js';
+import { requestContextFactory } from './request.context.js';
 
 export class TestContext {
     private static requestInstance: request.SuperTest<request.Test>;

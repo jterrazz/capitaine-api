@@ -1,31 +1,33 @@
-import { createInjector } from 'typed-inject';
+import { Container } from 'inversify';
 
-import { Environment } from '@infrastructure/environment';
+import { Configuration } from '../configuration/configuration.js';
 
-import packageJson from '../../package.json';
+import { Database } from '../ports/database.js';
+import { Logger } from '../ports/logger.js';
+import { Server } from '../ports/server.js';
 
-import { injectableConfigurationFactory } from './injectable.configuration';
-import { injectableDatabaseFactory } from './injectable.database';
-import { injectableLoggerFactory } from './injectable.logger';
-import { injectableRepositoriesFactory } from './injectable.repositories';
-import { injectableServerFactory } from './injectable.server';
-import { injectableUseCasesFactory } from './injectable.use-cases';
+import { Environment } from '../infrastructure/environment.js';
 
+import Dependency from './dependency.js';
+import { injectableConfigurationFactory } from './injectable.configuration.js';
+import { injectableDatabaseFactory } from './injectable.database.js';
+import { injectableLoggerFactory } from './injectable.logger.js';
+import { injectableRepositoriesFactory, Repositories } from './injectable.repositories.js';
+import { injectableServerFactory } from './injectable.server.js';
+import { injectableUseCasesFactory, UseCases } from './injectable.use-cases.js';
+
+// TODO Abstract interface in left side of assignment
+const container = new Container();
 const environment = (process.env.NODE_ENV as Environment) || Environment.Development;
 
-export const container = createInjector()
-    // Configuration
-    .provideValue('environment', environment)
-    .provideValue('apiVersion', packageJson.version)
-    .provideFactory('configuration', injectableConfigurationFactory)
+container.bind<Environment>(Dependency.Environment).toConstantValue(environment);
+container
+    .bind<Configuration>(Dependency.Configuration)
+    .toDynamicValue(injectableConfigurationFactory);
+container.bind<Logger>(Dependency.Logger).toDynamicValue(injectableLoggerFactory);
+container.bind<Database>(Dependency.Database).toDynamicValue(injectableDatabaseFactory);
+container.bind<Repositories>(Dependency.Repositories).toDynamicValue(injectableRepositoriesFactory); // TODO Do not use container for repositories
+container.bind<UseCases>(Dependency.UseCases).toDynamicValue(injectableUseCasesFactory); // TODO Do not use container for use cases
+container.bind<Server>(Dependency.Server).toDynamicValue(injectableServerFactory); // TODO Move to application layer
 
-    // Infrastructure
-    .provideFactory('logger', injectableLoggerFactory)
-    .provideFactory('database', injectableDatabaseFactory)
-    .provideFactory('repositories', injectableRepositoriesFactory)
-
-    // Application
-    .provideFactory('useCases', injectableUseCasesFactory)
-
-    // Server
-    .provideFactory('server', injectableServerFactory);
+export default container;

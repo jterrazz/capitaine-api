@@ -1,10 +1,10 @@
 import Router from 'koa-router';
 import { ZodObject, ZodRawShape } from 'zod';
 
-import { ExposedError } from '@domain/errors/exposed.error';
-import { UnprocessableEntityError } from '@domain/errors/functionnal/unprocessable-entity.error';
+import { ExposedError } from '../../domain/errors/exposed.error.js';
+import { UnprocessableEntityError } from '../../domain/errors/functionnal/unprocessable-entity.error.js';
 
-import { Logger } from '@ports/logger';
+import { Logger } from '../../ports/logger.js';
 
 export type InputReaderKoa = <T extends ZodObject<ZodRawShape>>(
     schema: T,

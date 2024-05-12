@@ -1,9 +1,9 @@
 import { mock } from 'jest-mock-extended';
 import { RouterContext } from 'koa-router';
 
-import { User } from '@domain/models/user';
+import { User } from '../../../../domain/models/user.js';
 
-import { getUserSerializerKoa } from '@adapters/routes/user/get-user-serializer.koa';
+import { getUserSerializerKoa } from '../get-user-serializer.koa.js';
 
 const context = mock<RouterContext>();
 

@@ -1,12 +1,11 @@
-import { useFakeTimers, useRealTimers } from '@tests/helpers/timer';
-
-import { sleep } from '../sleep';
+import { useFakeTimers, useRealTimers } from '../../../__tests__/helpers/timer.js';
+import { sleep } from '../sleep.js';
 
 const simulateSleep = async (sleepDuration: number, advanceTimeBy: number) => {
     const sleepPromise = sleep(sleepDuration);
     const promiseResolved = jest.fn();
 
-    void sleepPromise.then(promiseResolved); // eslint-disable-line promise/catch-or-return
+    void sleepPromise.then(promiseResolved);
 
     // Advance timers by the specified time
     jest.advanceTimersByTime(advanceTimeBy);

@@ -1,10 +1,10 @@
 import { mock } from 'jest-mock-extended';
 import { RouterContext } from 'koa-router';
 
-import { Logger } from '@ports/logger';
+import { Logger } from '../../../ports/logger.js';
 
-import { defaultDeserializerKoa } from '@adapters/routes/default-deserializer.koa';
-import { readInputKoaFactory } from '@adapters/routes/read-input.koa';
+import { defaultDeserializerKoa } from '../default-deserializer.koa.js';
+import { readInputKoaFactory } from '../read-input.koa.js';
 
 const context = mock<RouterContext>();
 

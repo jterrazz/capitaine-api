@@ -1,6 +1,6 @@
 import { Context } from 'koa';
 
-import { InputReaderKoa } from '@adapters/routes/read-input.koa';
+import { InputReaderKoa } from './read-input.koa.js';
 
 export type KoaContext = Context;
 

@@ -1,10 +1,11 @@
-import { ExposedError } from '@domain/errors/exposed.error';
-import { NotFoundError } from '@domain/errors/functionnal/not-found.error';
-import { User } from '@domain/models/user';
-import { UseCase } from '@domain/use-cases/use-case';
+import { Logger } from '../../ports/logger.js';
+import { UserRepository } from '../../ports/repositories.js';
 
-import { Logger } from '@ports/logger';
-import { UserRepository } from '@ports/repositories';
+import { ExposedError } from '../errors/exposed.error.js';
+import { NotFoundError } from '../errors/functionnal/not-found.error.js';
+import { User } from '../models/user.js';
+
+import { UseCase } from './use-case.js';
 
 export type GetUserUseCase = UseCase<number, User>;
 

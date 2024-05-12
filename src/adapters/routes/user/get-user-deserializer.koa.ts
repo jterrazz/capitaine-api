@@ -1,7 +1,7 @@
 import * as z from 'zod';
 
-import { KoaDeserializer } from '@adapters/routes/deserializer.koa';
-import { InputReaderKoa } from '@adapters/routes/read-input.koa';
+import { KoaDeserializer } from '../deserializer.koa.js';
+import { InputReaderKoa } from '../read-input.koa.js';
 
 const schema = z.object({
     params: z.object({

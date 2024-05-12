@@ -1,19 +1,28 @@
-import { Configuration } from '@configuration/configuration';
+import { interfaces } from 'inversify';
 
-import { Logger } from '@ports/logger';
+import { Configuration } from '../configuration/configuration.js';
 
-import { PrismaFactory } from '@infrastructure/database/prisma';
-import { prismaUserRepositoryFactory } from '@infrastructure/repositories/user-repository.prisma';
+import { Logger } from '../ports/logger.js';
 
-export const injectableRepositoriesFactory = (logger: Logger, configuration: Configuration) => {
+import { PrismaFactory } from '../infrastructure/database/prisma.js';
+import { prismaUserRepositoryFactory } from '../infrastructure/repositories/user-repository.prisma.js';
+
+import Dependency from './dependency.js';
+
+export const injectableRepositoriesFactory = (context: interfaces.Context) => {
     const prismaClient = PrismaFactory.getPrismaClient(
-        configuration.APPLICATION.DATABASE.URL,
-        logger,
+        context.container.get<Configuration>(Dependency.Configuration).APPLICATION.DATABASE.URL,
+        context.container.get<Logger>(Dependency.Logger),
     );
 
     return {
-        userRepository: prismaUserRepositoryFactory(logger, prismaClient),
+        userRepository: prismaUserRepositoryFactory(
+            context.container.get<Logger>(Dependency.Logger),
+            prismaClient,
+        ),
     };
 };
 
-injectableRepositoriesFactory.inject = ['logger', 'configuration'] as const;
+export interface Repositories {
+    userRepository: ReturnType<typeof prismaUserRepositoryFactory>;
+}

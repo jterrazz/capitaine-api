@@ -1,4 +1,4 @@
-import { User } from '@domain/models/user';
+import { User } from '../user.js';
 
 export const createMockOfUser = (partialUser: Partial<User> = {}) => ({
     email: 'john.doe@example.com',

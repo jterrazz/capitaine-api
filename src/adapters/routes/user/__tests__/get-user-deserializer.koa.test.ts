@@ -1,12 +1,12 @@
 import { mock } from 'jest-mock-extended';
 import { RouterContext } from 'koa-router';
 
-import { UnprocessableEntityError } from '@domain/errors/functionnal/unprocessable-entity.error';
+import { UnprocessableEntityError } from '../../../../domain/errors/functionnal/unprocessable-entity.error.js';
 
-import { Logger } from '@ports/logger';
+import { Logger } from '../../../../ports/logger.js';
 
-import { readInputKoaFactory } from '@adapters/routes/read-input.koa';
-import { getUserDeserializerKoa } from '@adapters/routes/user/get-user-deserializer.koa';
+import { readInputKoaFactory } from '../../read-input.koa.js';
+import { getUserDeserializerKoa } from '../get-user-deserializer.koa.js';
 
 const logger = mock<Logger>();
 

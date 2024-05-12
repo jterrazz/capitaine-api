@@ -1,9 +1,9 @@
 import { mock } from 'jest-mock-extended';
 import Router from 'koa-router';
 
-import { Logger } from '@ports/logger';
+import { Logger } from '../../../ports/logger.js';
 
-import { errorHandlerKoaMiddlewareFactory } from '@adapters/middlewares/error-handler-middleware.koa';
+import { errorHandlerKoaMiddlewareFactory } from '../error-handler-middleware.koa.js';
 
 const logger = mock<Logger>();
 const context = mock<Router.RouterContext>();

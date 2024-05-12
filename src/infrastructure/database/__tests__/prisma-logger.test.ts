@@ -1,9 +1,9 @@
 import { Prisma } from '@prisma/client';
 import { mock } from 'jest-mock-extended';
 
-import { Logger } from '@ports/logger';
+import { Logger } from '../../../ports/logger.js';
 
-import { prismaLoggerFactory } from '@infrastructure/database/prisma-logger';
+import { prismaLoggerFactory } from '../prisma-logger.js';
 
 const logger = mock<Logger>();
 

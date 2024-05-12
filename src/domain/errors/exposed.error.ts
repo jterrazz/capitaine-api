@@ -1,5 +1,5 @@
-import { FunctionalError } from '@domain/errors/functional.error';
-import { TechnicalError } from '@domain/errors/technical.error';
+import { FunctionalError } from './functional.error.js';
+import { TechnicalError } from './technical.error.js';
 
 export class ExposedError extends Error {
     constructor(

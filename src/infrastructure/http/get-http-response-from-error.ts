@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
 
-import { isExposedError } from '@domain/errors/exposed.error';
+import { isExposedError } from '../../domain/errors/exposed.error.js';
 
 const INTERNAL_ERROR_MESSAGE = 'Internal server error';
 const INTERNAL_ERROR_STATUS = StatusCodes.INTERNAL_SERVER_ERROR;

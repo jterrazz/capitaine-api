@@ -1,7 +1,6 @@
-import { TestContext } from '@tests/e2e/context';
-import { dangerouslySeedUser } from '@tests/e2e/seeds/user';
-
-import { container } from '../../../src/container/container';
+import { container } from '../../../src/container/container.js';
+import { TestContext } from '../context.js';
+import { dangerouslySeedUser } from '../seeds/user.js';
 
 beforeAll(async () => {
     await TestContext.database().connect();

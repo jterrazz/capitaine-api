@@ -1,8 +1,8 @@
 import Router from 'koa-router';
 
-import { isError } from '@domain/errors/error';
+import { isError } from '../../domain/errors/error.js';
 
-import { Logger } from '@ports/logger';
+import { Logger } from '../../ports/logger.js';
 
 export const errorHandlerKoaMiddlewareFactory = (
     logger: Logger,

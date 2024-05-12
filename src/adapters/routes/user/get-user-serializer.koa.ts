@@ -1,9 +1,9 @@
 import { StatusCodes } from 'http-status-codes';
 import { RouterContext } from 'koa-router';
 
-import { User } from '@domain/models/user';
+import { User } from '../../../domain/models/user.js';
 
-import { KoaSerializer } from '@adapters/routes/serializer.koa';
+import { KoaSerializer } from '../serializer.koa.js';
 
 export const getUserSerializerKoa: KoaSerializer<User> = (ctx: RouterContext, user: User) => {
     ctx.status = StatusCodes.OK;

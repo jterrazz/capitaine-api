@@ -1,4 +1,4 @@
-import { User } from '@domain/models/user';
+import { User } from '../domain/models/user.js';
 
 export interface UserRepository {
     findById(id: number): Promise<User | null>;

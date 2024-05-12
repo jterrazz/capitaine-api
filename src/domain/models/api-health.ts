@@ -1,4 +1,4 @@
-import { ApiHealthStatus } from '@domain/models/api-health-status';
+import { ApiHealthStatus } from './api-health-status.js';
 
 export interface ApiHealth {
     status: ApiHealthStatus;

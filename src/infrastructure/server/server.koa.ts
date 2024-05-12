@@ -1,8 +1,8 @@
 import Koa from 'koa';
 import Router from 'koa-router';
 
-import { Logger } from '@ports/logger';
-import { Server } from '@ports/server';
+import { Logger } from '../../ports/logger.js';
+import { Server } from '../../ports/server.js';
 
 export const koaServerFactory = (logger: Logger, router: Router): Server => {
     logger.debug('initializing koa server');

@@ -1,6 +1,6 @@
 import { Prisma } from '@prisma/client';
 
-import { Logger } from '@ports/logger';
+import { Logger } from '../../ports/logger.js';
 
 export type PrismaLogger = (level: Prisma.LogLevel, message: string) => void;
 

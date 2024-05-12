@@ -15,21 +15,21 @@ jobs:
             - run: make test
 
     lint-type:
-        name: Type Check
+        name: Lint for Type
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
             - run: make lint-type
 
     lint-code:
-        name: Code Check
+        name: Lint for Code
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
             - run: make lint-code
 
     lint-style:
-        name: Style Check
+        name: Lint for Style
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4

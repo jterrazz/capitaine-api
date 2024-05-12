@@ -1,5 +1,5 @@
-import { TestContext } from '@tests/e2e/context';
-import { useFakeTimers, useRealTimers } from '@tests/helpers/timer';
+import { useFakeTimers, useRealTimers } from '../../../../helpers/timer.js';
+import { TestContext } from '../../../context.js';
 
 beforeAll(() => {
     useFakeTimers();

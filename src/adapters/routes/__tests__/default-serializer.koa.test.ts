@@ -1,7 +1,7 @@
 import { mock } from 'jest-mock-extended';
 import { RouterContext } from 'koa-router';
 
-import { defaultSerializerKoa } from '@adapters/routes/default-serializer.koa';
+import { defaultSerializerKoa } from '../default-serializer.koa.js';
 
 describe('defaultSerializerKoa()', () => {
     test('return 200 status code', () => {

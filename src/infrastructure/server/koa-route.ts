@@ -1,12 +1,12 @@
 import Router from 'koa-router';
 
-import { UseCase } from '@domain/use-cases/use-case';
+import { UseCase } from '../../domain/use-cases/use-case.js';
 
-import { Logger } from '@ports/logger';
+import { Logger } from '../../ports/logger.js';
 
-import { KoaDeserializer } from '@adapters/routes/deserializer.koa';
-import { readInputKoaFactory } from '@adapters/routes/read-input.koa';
-import { KoaSerializer } from '@adapters/routes/serializer.koa';
+import { KoaDeserializer } from '../../adapters/routes/deserializer.koa.js';
+import { readInputKoaFactory } from '../../adapters/routes/read-input.koa.js';
+import { KoaSerializer } from '../../adapters/routes/serializer.koa.js';
 
 export const koaRouteFactory = <T extends UseCase<any, any>>( // eslint-disable-line  @typescript-eslint/no-explicit-any
     logger: Logger,

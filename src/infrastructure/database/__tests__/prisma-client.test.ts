@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 
-import { prismaClientFactory } from '@infrastructure/database/prisma-client';
-import { PrismaLogger } from '@infrastructure/database/prisma-logger';
+import { prismaClientFactory } from '../prisma-client.js';
+import { PrismaLogger } from '../prisma-logger.js';
 
 let prismaEventHandlers: Record<string, CallableFunction> = {};
 

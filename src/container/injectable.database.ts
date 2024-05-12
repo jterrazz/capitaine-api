@@ -1,15 +1,17 @@
-import { Configuration } from '@configuration/configuration';
+import { interfaces } from 'inversify';
 
-import { Database } from '@ports/database';
-import { Logger } from '@ports/logger';
+import { Configuration } from '../configuration/configuration.js';
 
-import { PrismaFactory } from '@infrastructure/database/prisma';
+import { Database } from '../ports/database.js';
+import { Logger } from '../ports/logger.js';
 
-export const injectableDatabaseFactory = (
-    configuration: Configuration,
-    logger: Logger,
-): Database => {
-    return PrismaFactory.getDatabase(configuration.APPLICATION.DATABASE.URL, logger);
+import { PrismaFactory } from '../infrastructure/database/prisma.js';
+
+import Dependency from './dependency.js';
+
+export const injectableDatabaseFactory = (context: interfaces.Context): Database => {
+    return PrismaFactory.getDatabase(
+        context.container.get<Configuration>(Dependency.Configuration).APPLICATION.DATABASE.URL,
+        context.container.get<Logger>(Dependency.Logger),
+    );
 };
-
-injectableDatabaseFactory.inject = ['configuration', 'logger'] as const;

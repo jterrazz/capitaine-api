@@ -1,4 +1,4 @@
-import { sleep } from '@utils/sleep';
+import { sleep } from './sleep.js';
 
 type RetryOptions = {
     tries?: number;

@@ -1,7 +1,8 @@
-import { TestContext } from '@tests/e2e/context';
-import { dangerouslySeedUser } from '@tests/e2e/seeds/user';
-import { useFakeTimers, useRealTimers } from '@tests/helpers/timer';
 import * as crypto from 'crypto';
+
+import { useFakeTimers, useRealTimers } from '../../../../helpers/timer.js';
+import { TestContext } from '../../../context.js';
+import { dangerouslySeedUser } from '../../../seeds/user.js';
 
 beforeAll(async () => {
     useFakeTimers();

@@ -1,11 +1,11 @@
 import { PrismaClient } from '@prisma/client';
 
-import { Database } from '@ports/database';
-import { Logger } from '@ports/logger';
+import { Database } from '../../ports/database.js';
+import { Logger } from '../../ports/logger.js';
 
-import { prismaDatabaseFactory } from '@infrastructure/database/database.prisma';
-import { prismaClientFactory } from '@infrastructure/database/prisma-client';
-import { prismaLoggerFactory } from '@infrastructure/database/prisma-logger';
+import { prismaDatabaseFactory } from './database.prisma.js';
+import { prismaClientFactory } from './prisma-client.js';
+import { prismaLoggerFactory } from './prisma-logger.js';
 
 export class PrismaFactory {
     private static database: Database;

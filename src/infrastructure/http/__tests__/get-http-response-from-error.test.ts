@@ -1,9 +1,9 @@
-import { ExposedError } from '@domain/errors/exposed.error';
-import { NotFoundError } from '@domain/errors/functionnal/not-found.error';
-import { UnprocessableEntityError } from '@domain/errors/functionnal/unprocessable-entity.error';
-import { TechnicalError } from '@domain/errors/technical.error';
+import { ExposedError } from '../../../domain/errors/exposed.error.js';
+import { NotFoundError } from '../../../domain/errors/functionnal/not-found.error.js';
+import { UnprocessableEntityError } from '../../../domain/errors/functionnal/unprocessable-entity.error.js';
+import { TechnicalError } from '../../../domain/errors/technical.error.js';
 
-import { getHttpResponseFromError } from '@infrastructure/http/get-http-response-from-error';
+import { getHttpResponseFromError } from '../get-http-response-from-error.js';
 
 describe('getHttpResponseFromError()', () => {
     test.each([

@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 
-import { Logger } from '@ports/logger';
-import { UserRepository } from '@ports/repositories';
+import { Logger } from '../../ports/logger.js';
+import { UserRepository } from '../../ports/repositories.js';
 
 export const prismaUserRepositoryFactory = (
     logger: Logger,

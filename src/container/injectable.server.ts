@@ -1,23 +1,22 @@
-import { GetApiHealthUseCase } from '@domain/use-cases/get-api-health.use-case';
-import { GetUserUseCase } from '@domain/use-cases/get-user.use-case';
+import { interfaces } from 'inversify';
 
-import { Logger } from '@ports/logger';
-import { Server } from '@ports/server';
+import { Configuration } from '../configuration/configuration.js';
 
-import { koaRouterFactory } from '@infrastructure/server/koa-router';
-import { koaServerFactory } from '@infrastructure/server/server.koa';
+import { Logger } from '../ports/logger.js';
+import { Server } from '../ports/server.js';
 
-export const injectableServerFactory = (
-    logger: Logger,
-    apiVersion: string,
-    useCases: {
-        getApiHealthUseCase: GetApiHealthUseCase;
-        getUserUseCase: GetUserUseCase;
-    },
-): Server => {
-    const router = koaRouterFactory(logger, apiVersion, useCases);
+import { koaRouterFactory } from '../infrastructure/server/koa-router.js';
+import { koaServerFactory } from '../infrastructure/server/server.koa.js';
+
+import Dependency from './dependency.js';
+import { UseCases } from './injectable.use-cases.js';
+
+export const injectableServerFactory = (context: interfaces.Context): Server => {
+    const logger = context.container.get<Logger>(Dependency.Logger);
+    const configuration = context.container.get<Configuration>(Dependency.Configuration);
+    const useCases = context.container.get<UseCases>(Dependency.UseCases);
+
+    const router = koaRouterFactory(logger, configuration.APPLICATION.VERSION, useCases);
 
     return koaServerFactory(logger, router);
 };
-
-injectableServerFactory.inject = ['logger', 'apiVersion', 'useCases'] as const;

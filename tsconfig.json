@@ -1,25 +1,6 @@
 {
+    "extends": "@jterrazz/package-typescript/tsconfig/node-esm",
     "compilerOptions": {
-        "paths": {
-            "@adapters/*": ["./src/adapters/*"],
-            "@application/*": ["./src/application/*"],
-            "@configuration/*": ["./src/configuration/*"],
-            "@domain/*": ["./src/domain/*"],
-            "@ports/*": ["./src/ports/*"],
-            "@infrastructure/*": ["./src/infrastructure/*"],
-            "@utils/*": ["./src/utils/*"],
-            "@tests/*": ["./tests/*"]
-        },
-        "types" : ["node", "jest"],
-
-        "strict": true,
-        "experimentalDecorators": true,
-        "esModuleInterop": true,
-        "resolveJsonModule": true,
-        "noEmit": true
-    },
-    "include": [
-        "src/**/*.ts",
-        "tests/**/*.ts"
-    ]
+        "emitDecoratorMetadata": true
+    }
 }

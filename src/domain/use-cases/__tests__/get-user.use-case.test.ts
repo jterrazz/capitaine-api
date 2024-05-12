@@ -1,11 +1,11 @@
 import { mock } from 'jest-mock-extended';
 
-import { NotFoundError } from '@domain/errors/functionnal/not-found.error';
-import { createMockOfUser } from '@domain/models/__fixtures__/user.mock';
-import { getUserUseCaseFactory } from '@domain/use-cases/get-user.use-case';
+import { Logger } from '../../../ports/logger.js';
+import { UserRepository } from '../../../ports/repositories.js';
 
-import { Logger } from '@ports/logger';
-import { UserRepository } from '@ports/repositories';
+import { NotFoundError } from '../../errors/functionnal/not-found.error.js';
+import { createMockOfUser } from '../../models/__fixtures__/user.mock.js';
+import { getUserUseCaseFactory } from '../get-user.use-case.js';
 
 const logger = mock<Logger>();
 const user = createMockOfUser();

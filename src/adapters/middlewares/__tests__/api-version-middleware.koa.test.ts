@@ -1,7 +1,7 @@
-import { mock } from 'jest-mock-extended';
+import { mock } from '@jterrazz/package-typescript-test';
 import Router from 'koa-router';
 
-import { apiVersionKoaMiddlewareFactory } from '@adapters/middlewares/api-version-middleware.koa';
+import { apiVersionKoaMiddlewareFactory } from '../api-version-middleware.koa.js';
 
 describe('apiVersionKoaMiddleware()', () => {
     test('set context with an api-version header', async () => {

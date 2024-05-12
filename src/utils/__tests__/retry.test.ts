@@ -1,6 +1,5 @@
-import { useFakeTimers, useRealTimers } from '@tests/helpers/timer';
-
-import { retry } from '../retry';
+import { useFakeTimers, useRealTimers } from '../../../__tests__/helpers/timer.js';
+import { retry } from '../retry.js';
 
 // Helper function to create a mock function that resolves after n tries
 const createMockOfResolvingFn = (resolveValue: unknown, tries: number) => {

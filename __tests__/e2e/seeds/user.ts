@@ -1,8 +1,7 @@
+import { User } from '@prisma/client';
 import * as crypto from 'crypto';
 
-import { User } from '@domain/models/user';
-
-import { container } from '../../../src/container/container';
+import { container } from '../../../src/container/container.js';
 
 export const dangerouslySeedUser = async (
     { email } = {

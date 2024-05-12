@@ -1,4 +1,4 @@
-import { TestContext } from '@tests/e2e/context';
+import { TestContext } from '../e2e/context.js';
 
 const globalTeardown = async () => {
     await TestContext.database().disconnect();

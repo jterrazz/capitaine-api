@@ -1,10 +1,10 @@
-import { Configuration } from '@configuration/configuration';
+import { Configuration } from './configuration/configuration.js';
 
-import { Database } from '@ports/database';
-import { Logger } from '@ports/logger';
-import { Server } from '@ports/server';
+import { Database } from './ports/database.js';
+import { Logger } from './ports/logger.js';
+import { Server } from './ports/server.js';
 
-import { retry } from '@utils/retry';
+import { retry } from './utils/retry.js';
 
 interface Api {
     start: () => Promise<void>;
