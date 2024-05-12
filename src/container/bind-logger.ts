@@ -5,9 +5,9 @@ import { Configuration } from '../configuration/configuration.js';
 import { Environment } from '../infrastructure/environment.js';
 import { winstonLoggerFactory } from '../infrastructure/logger/logger.winston.js';
 
-import Dependency from './dependency.js';
+import { Dependency } from './container.js';
 
-export const injectableLoggerFactory = (context: interfaces.Context) => {
+export const bindLogger = (context: interfaces.Context) => {
     const environment = (process.env.NODE_ENV as Environment) || Environment.Development;
 
     return winstonLoggerFactory(

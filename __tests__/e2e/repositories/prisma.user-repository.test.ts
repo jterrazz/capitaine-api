@@ -1,6 +1,6 @@
+import { Repositories } from '../../../src/container/bind-repositories.js';
 import container from '../../../src/container/container.js';
-import Dependency from '../../../src/container/dependency.js';
-import { Repositories } from '../../../src/container/injectable.repositories.js';
+import Dependency from '../../../src/container/container.js';
 import { TestContext } from '../context.js';
 import { dangerouslySeedUser } from '../seeds/user.js';
 

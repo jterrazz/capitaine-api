@@ -4,8 +4,7 @@ import { Database } from './ports/database.js';
 import { Logger } from './ports/logger.js';
 import { Server } from './ports/server.js';
 
-import container from './container/container.js';
-import Dependency from './container/dependency.js';
+import container, { Dependency } from './container/container.js';
 
 import 'reflect-metadata';
 import { apiFactory } from './api.js';

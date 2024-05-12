@@ -1,9 +1,9 @@
 import { User } from '@prisma/client';
 import * as crypto from 'crypto';
 
+import { Repositories } from '../../../src/container/bind-repositories.js';
 import container from '../../../src/container/container.js';
-import Dependency from '../../../src/container/dependency.js';
-import { Repositories } from '../../../src/container/injectable.repositories.js';
+import Dependency from '../../../src/container/container.js';
 
 export const dangerouslySeedUser = async (
     { email } = {

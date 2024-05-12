@@ -7,9 +7,9 @@ import { Logger } from '../ports/logger.js';
 
 import { PrismaFactory } from '../infrastructure/database/prisma.js';
 
-import Dependency from './dependency.js';
+import { Dependency } from './container.js';
 
-export const injectableDatabaseFactory = (context: interfaces.Context): Database => {
+export const bindDatabase = (context: interfaces.Context): Database => {
     return PrismaFactory.getDatabase(
         context.container.get<Configuration>(Dependency.Configuration).APPLICATION.DATABASE.URL,
         context.container.get<Logger>(Dependency.Logger),

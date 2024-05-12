@@ -4,8 +4,8 @@ import { Configuration, configurationFactory } from '../configuration/configurat
 
 import { Environment } from '../infrastructure/environment.js';
 
-import Dependency from './dependency.js';
+import { Dependency } from './container.js';
 
-export function injectableConfigurationFactory(context: interfaces.Context): Configuration {
+export function bindConfiguration(context: interfaces.Context): Configuration {
     return configurationFactory(context.container.get<Environment>(Dependency.Environment));
 }
