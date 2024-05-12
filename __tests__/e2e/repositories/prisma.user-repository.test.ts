@@ -1,4 +1,6 @@
-import { container } from '../../../src/container/container.js';
+import container from '../../../src/container/container.js';
+import Dependency from '../../../src/container/dependency.js';
+import { Repositories } from '../../../src/container/injectable.repositories.js';
 import { TestContext } from '../context.js';
 import { dangerouslySeedUser } from '../seeds/user.js';
 
@@ -7,7 +9,7 @@ beforeAll(async () => {
 });
 
 describe('Prisma - User Repository', () => {
-    const userRepository = container.resolve('repositories').userRepository;
+    const userRepository = container.get<Repositories>(Dependency.Repositories).userRepository;
 
     describe('findByEmail()', () => {
         test('return null when a user is not found', async () => {

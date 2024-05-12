@@ -1,6 +1,3 @@
 {
-    "extends": "@jterrazz/package-typescript/tsconfig/node-esm",
-    "compilerOptions": {
-        "emitDecoratorMetadata": true
-    }
+    "extends": "@jterrazz/package-typescript/tsconfig/node-esm"
 }

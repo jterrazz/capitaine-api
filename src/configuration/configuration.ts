@@ -21,7 +21,7 @@ export const configurationFactory = (environment: string): Configuration => {
     const require = createRequire(import.meta.url);
 
     const config = require('config'); // eslint-disable-line @typescript-eslint/no-var-requires
-    const versionFromPackage = process.env.npm_package_version;
+    const versionFromPackage = process.env.npm_package_version || '42'; // TODO;
 
     const applicationConfiguration = config.get('APPLICATION') as object;
     // const servicesConfiguration = config.get('SERVICES') as object;
