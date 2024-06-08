@@ -7,9 +7,9 @@
         "node": "20.12.x"
     },
     "scripts": {
+        "build": "swc-compile",
         "start": "node dist/index.js",
         "start-dev": "swc-watch",
-        "build": "swc-compile",
         "test": "jest",
         "lint-type": "tsc --noEmit",
         "lint-code": "eslint .",
@@ -22,7 +22,7 @@
         "@types/config": "^3.3.0",
         "@types/koa": "^2.13.6",
         "@types/koa-router": "^7.4.4",
-        "@types/node": "^20.12.8"
+        "@types/node": "^20"
     },
     "dependencies": {
         "@prisma/client": "4.16.1",

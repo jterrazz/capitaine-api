@@ -39,7 +39,7 @@ describe('retry', () => {
         const fn = createMockOfResolvingFn('success', 3);
 
         // When
-        const result = retry(fn, { tries: 5 });
+        const result = retry(fn, { retries: 5 });
         jest.advanceTimersByTime(10_000);
 
         // Then
@@ -55,7 +55,7 @@ describe('retry', () => {
         });
 
         // When
-        const resultPromise = retry(fn, { tries: 3 });
+        const resultPromise = retry(fn, { retries: 3 });
         jest.advanceTimersByTime(10_000);
 
         // Then
@@ -71,7 +71,7 @@ describe('retry', () => {
         const onError = jest.fn();
 
         // When
-        const resultPromise = retry(fn, { onError, tries: 5 });
+        const resultPromise = retry(fn, { onError, retries: 5 });
         jest.advanceTimersByTime(10_000);
 
         // Then

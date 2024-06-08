@@ -1,10 +1,9 @@
 import Koa from 'koa';
 import Router from 'koa-router';
 
-import { Logger } from '../../ports/logger.js';
-import { Server } from '../../ports/server.js';
+import { Logger } from '../../../ports/logger.js';
 
-export const koaServerFactory = (logger: Logger, router: Router): Server => {
+export const koaServerFactory = (logger: Logger, router: Router) => {
     logger.debug('initializing koa server');
 
     const koa = new Koa();

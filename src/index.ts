@@ -1,29 +1,20 @@
-import { Configuration } from './configuration/configuration.js';
+import { entrypointHttpFactory } from './application/entrypoints/entrypoint.http.js';
 
-import { Database } from './ports/database.js';
 import { Logger } from './ports/logger.js';
-import { Server } from './ports/server.js';
 
 import container, { Dependency } from './container/container.js';
 
 import 'reflect-metadata';
-import { apiFactory } from './api.js';
 
-export const startApi = async () => {
+export const start = async () => {
     const logger = container.get<Logger>(Dependency.Logger);
-
-    const api = apiFactory(
-        container.get<Configuration>(Dependency.Configuration),
-        logger,
-        container.get<Database>(Dependency.Database),
-        container.get<Server>(Dependency.Server),
-    );
+    const httpEntrypoint = entrypointHttpFactory(container);
 
     try {
-        await api.start();
+        await httpEntrypoint.start();
     } catch (error) {
         logger.error(error);
     }
 };
 
-void startApi().then();
+void start().then();
