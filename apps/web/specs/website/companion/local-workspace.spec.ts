@@ -56,6 +56,7 @@ test('device pairing explains its limitation and can be dismissed with escape', 
         await visitor.see(heading('A companion, in the making.'));
         await visitor.see(content(notice));
         await visitor.press('Escape');
+        await visitor.gone(content(notice));
     });
     // Then - the dialog closes without pretending that a device was connected.
     expect(result.content).not.toContain(notice);
