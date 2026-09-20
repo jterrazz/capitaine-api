@@ -5,7 +5,7 @@ export default defineSpecConfig({
         projects: [
             unit({ include: ['src/**/*.test.ts'] }),
             website({
-                include: ['specs/website/**/*.test.ts'],
+                include: ['specs/website/**/*.spec.ts'],
                 serial: true,
                 timeout: 60_000,
             }),
